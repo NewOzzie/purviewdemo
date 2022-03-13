@@ -10,7 +10,7 @@ function getUserPrincipalId() {
 }
 
 function selectLocation() {
-    $locationList='australiaeast', 'brazilsouth', 'canadacentral', 'centralindia', 'eastus', 'eastus2', 'southcentralus', 'southeastasia', 'uksouth', 'westeurope'
+    $locationList='australiaeast'
     $location = Get-Random -InputObject $locationList
     Return $location
 }
