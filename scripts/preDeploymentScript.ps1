@@ -92,7 +92,7 @@ While ($null -eq $accessToken) {
     $accessToken = getAccessToken $tenantId $clientId $clientSecret "https://management.core.windows.net/"
 }
 # Create Azure Purview Account (as Service Principal)
-$templateLink = "https://github.com/NewOzzie/purviewdemo/blob/main/templates/json/purviewdeploy.json" 
+$templateLink = "https://raw.githubusercontent.com/NewOzzie/purviewdemo/main/templates/json/purviewdeploy.json" 
 $parameters = @{ suffix = @{ value = $suffix } }
 $deployment = deployTemplate $accessToken $templateLink $resourceGroupName $parameters
 $deploymentName = $deployment.name
@@ -110,7 +110,7 @@ While ($provisioningState -ne "Succeeded") {
 }
 
 # Deploy Template
-$templateUri = "https://github.com/NewOzzie/purviewdemo/blob/main/templates/json/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/NewOzzie/purviewdemo/main/templates/json/azuredeploy.json"
 $secureSecret = ConvertTo-SecureString -AsPlainText $sp.PasswordCredentials.SecretText
 $job = New-AzResourceGroupDeployment `
   -Name "pvDemoTemplate-${suffix}" `
